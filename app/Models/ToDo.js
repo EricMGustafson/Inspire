@@ -15,7 +15,7 @@ export class ToDo {
         <label class="form-check-label ${this.completed ? 'st' : ''}" for="todos">${this.description}</label>
       </div>
       <div>
-        <i class="mdi mdi-delete selectable" onclick="app.toDosController.deleteToDo('${this.id}')"></i>
+        <i class="mdi mdi-delete selectable" onclick="app.toDosController.deleteToDo('${this.id}', '${this.description}')"></i>
       </div>
     </div>`
   }

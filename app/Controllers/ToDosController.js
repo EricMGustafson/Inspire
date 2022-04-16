@@ -48,7 +48,8 @@ export class ToDosController{
       Pop.toast(error, 'error')
     }
   }
-  async deleteToDo(id){
+  async deleteToDo(id, todo){
+    if(await Pop.confirm('Delete ToDo?', 'This will delete ' + todo + '.', 'warning'))
     try {
       await toDosServices.deleteToDo(id)
     } catch (error) {
