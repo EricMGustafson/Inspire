@@ -27,13 +27,14 @@ export class ToDosController{
   async addToDo(){
     try {
       window.event.preventDefault()
+      /**@type {HTMLFormElement} */
+      // @ts-ignore
       const formElem = window.event.target
       const formData = {
-        // @ts-ignore
         description: formElem.description.value
       }
       await toDosServices.addToDo(formData)
-      console.log('form data', formData);
+      formElem.reset()
     } catch (error) {
       console.error(error)
       Pop.toast(error, 'error')
