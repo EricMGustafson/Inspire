@@ -11123,7 +11123,7 @@ textarea.form-control-lg {
 
 .btn-check:focus + .btn, .btn:focus {
   outline: 0;
-  box-shadow: 0 0 0 0.25rem var(--bs-warning);
+  box-shadow: 0 0 0 0.125rem var(--bs-warning);
 }
 
 .form-control {
@@ -11157,6 +11157,21 @@ textarea.form-control-lg {
 
 .form-check-input:checked[type=checkbox] {
   background-image: url("../img/checkbox.png");
+}
+
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+hr {
+  margin: 0px;
+  color: inherit;
+  background-color: currentColor;
+  border: 0;
+  opacity: 1;
 }
 
 .bg-primary {
@@ -14163,12 +14178,22 @@ main {
   width: 17vw;
 }
 
+.offcanvas-start {
+  top: 10vh;
+  bottom: 60vh;
+  width: fit-content;
+}
+
 .st {
   text-decoration: line-through;
 }
 
 .vh-5 {
   height: 5vh;
+}
+
+.vh-21 {
+  height: 21vh;
 }
 
 .btn {

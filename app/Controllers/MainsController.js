@@ -65,4 +65,11 @@ export class MainsController {
   clockFlip(){
     clocksServices.clockFlip()
   }
+  setTheme(theme){
+    document.getElementById('body').style.color = 'var(--bs-'+ theme + ')'
+    document.getElementById('offcanvasRight').style.color = 'var(--bs-'+ theme + ')'
+    document.getElementById('offcanvasLeft').style.color = 'var(--bs-'+ theme + ')'
+    document.getElementById('btn').style.color = 'var(--bs-'+ theme + ')'
+    document.getElementById('description').style.color = 'var(--bs-'+ theme + ')'
+  }
 }

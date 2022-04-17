@@ -14,13 +14,12 @@
   <title>checkpoint4</title>
 </head>
 
-<body id="body" class="text-warning">
+<body id="body" style="color: var(--bs-warning)">
   <div class="container-fluid vh-c">
     <div class="row h-100">
-      <div class="col-6">
-        <button onclick="app.mainsController.getImage()">New Image</button>
-        <button onclick="app.mainsController.getQuote()">New Quote</button>
-        <button onclick="app.mainsController.clockFlip()">Clock Format</button>
+      <div class="col-6 d-flex">
+        <i class="mdi mdi-tune mdi-48px selectable" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft"
+        aria-controls="offcanvasLeft"></i>
       </div>
       <div class="col-6 d-flex justify-content-end p-2 fs-1" id="weather">
       </div>
@@ -32,23 +31,22 @@
     </div>
   </main>
   <div class="container-fluid ">
-    <div class="row">
+    <div class="row vh-21">
       <div class="col-md-2 p-2 gx-0 text-start align-self-end" id="img-info">
         <!-- img info here -->
       </div>
-      <div class="col" id="quote">
+      <div class="col align-self-end" id="quote">
         <!-- quotes here -->
       </div>
       <div class="col-md-2 gx-0 text-end align-self-end">
-        <button class="btn text-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+        <button class="btn" id="btn" style="color: var(--bs-warning)" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
           aria-controls="offcanvasRight">ToDos</button>
       </div>
     </div>
   </div>
 
-
-  <div class="offcanvas offcanvas-end rounded text-warning bg-grey px-2" tabindex="-1" id="offcanvasRight"
-    aria-labelledby="offcanvasRightLabel">
+<!-- #region -->
+  <div class="offcanvas offcanvas-end rounded bg-grey gx-0" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="color: var(--bs-warning)">
     <div class="offcanvas-header justify-content-between py-1">
       <h5 id="offcanvasRightLabel">ToDo</h5>
       <h5><span id="unchecked">0</span>/<span id="total">0</span></h5>
@@ -64,7 +62,54 @@
       </form>
     </div>
   </div>
+  <!-- #endregion -->
 
+  <!-- #region -->
+  <div class="offcanvas offcanvas-start rounded bg-grey gx-0" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel" style="color: var(--bs-warning)">
+    <div class="text-center px-2">
+      <h5 id="offcanvasLeftLabel">Change Themes</h5>
+      <hr>
+    </div>
+    <div class="offcanvas-body px-2 py-1 d-flex flex-column justify-content-evenly">
+      <div class="gx-0">
+        <i onclick="app.mainsController.setTheme('dark')" class="mdi mdi-cog selectable"></i>
+        <span>Dark Theme</span>
+      </div>
+      <div class="gx-0">
+        <i onclick="app.mainsController.setTheme('light')" class="mdi mdi-cog selectable"></i>
+        <span>Light Theme</span>
+      </div>
+      <div class="gx-0">
+        <i onclick="app.mainsController.setTheme('warning')" class="mdi mdi-cog selectable"></i>
+        <span>Warning Theme</span>
+      </div> 
+    </div>
+    <div class="px-2">
+      <hr>
+    </div>
+    <div class="offcanvas-body px-2 py-1 d-flex flex-column justify-content-evenly">
+      <div class="gx-0">
+        <i onclick="app.mainsController.getImage()" class="mdi mdi-cog selectable"></i>
+        <span>Get New Image</span>
+      </div>      
+      <div class="gx-0">
+        <i onclick="app.mainsController.getQuote()" class="mdi mdi-cog selectable"></i>
+        <span>Get New Quote</span>
+      </div>      
+      <div class="gx-0">
+        <i onclick="app.mainsController.clockFlip()" class="mdi mdi-cog selectable"></i>
+        <span>Change Clock Format</span>
+      </div>
+    </div>
+    <div>
+      <form onsubmit="app.toDosController.addToDo()" class="d-flex">
+        <label for="description" class="form-label"></label>
+        <input type="text" class="form-control squared rounded-bottom text-warning" name="description" id="description" aria-describedby="helpId"
+          placeholder="ToDo..." required>
+      </form>
+    </div>
+  </div>
+<!-- #endregion -->
 
   <!-- #region -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"

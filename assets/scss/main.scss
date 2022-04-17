@@ -31,12 +31,22 @@ main {
   width: 17vw;
 }
 
+.offcanvas-start {
+  top: 10vh;
+  bottom: 60vh;
+  width:fit-content;
+}
+
 .st {
   text-decoration: line-through;
 }
 
 .vh-5 {
   height: 5vh;
+}
+
+.vh-21 {
+  height: 21vh
 }
 
 
@@ -50,3 +60,5 @@ main {
   height: 8vh;
   width: auto
 }
+
+

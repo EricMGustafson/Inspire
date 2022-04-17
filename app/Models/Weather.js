@@ -21,7 +21,7 @@ export class Weather{
     return `
     <div class="d-flex text-center">
       <div class="me-2" id="weatherIcon">
-        <img class="object-fit" src="https://openweathermap.org/img/wn/${this.icon}@2x.png" alt="">
+        <img class="object-fit" src="https://openweathermap.org/img/wn/${this.icon}@2x.png" alt="${this.description}" title="${this.description}">
       </div>
       <div>
         <div onclick="app.weathersController.tempSwitch()" class="selectable vh-5">
@@ -37,7 +37,7 @@ export class Weather{
     return `
     <div class="d-flex text-center">
         <div class="me-2" id="weatherIcon">
-          <img class="object-fit" src="https://openweathermap.org/img/wn/${this.icon}@2x.png" alt="">
+          <img class="object-fit" src="https://openweathermap.org/img/wn/${this.icon}@2x.png" alt="${this.description}" title="${this.description}">
         </div>
       <div>
         <div onclick="app.weathersController.tempSwitch()" class="selectable vh-5">
@@ -53,7 +53,7 @@ export class Weather{
     return `
     <div class="d-flex text-center">
         <div class="me-2" id="weatherIcon">
-          <img class="object-fit" src="https://openweathermap.org/img/wn/${this.icon}@2x.png" alt="">
+          <img class="object-fit" src="https://openweathermap.org/img/wn/${this.icon}@2x.png" alt="${this.description}" title="${this.description}">
         </div>
       <div>
         <div onclick="app.weathersController.tempSwitch()" class="selectable vh-5">

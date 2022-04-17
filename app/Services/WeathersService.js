@@ -1,6 +1,6 @@
 import { ProxyState } from "../AppState.js";
 import { Weather } from "../Models/Weather.js";
-import { iconApi, sandboxApi } from "./AxiosServices.js"
+import { sandboxApi } from "./AxiosServices.js"
 
 class WeathersService {
  

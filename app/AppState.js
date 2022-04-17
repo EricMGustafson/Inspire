@@ -4,6 +4,7 @@ import { isValidProp } from "./Utils/isValidProp.js"
 class AppState extends EventEmitter {
   /** @type {import('./Models/ToDo').ToDo[]} */
   todos = []
+  themeDisplay = 1
   currentWeather = null
   weatherDisplay = 1
   currentQuote = null
