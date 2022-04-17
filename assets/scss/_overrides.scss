@@ -29,3 +29,17 @@
   color: var(--bs-warning);
   opacity: 1;
 }
+
+.form-check-input {
+  background-color: var(--bs-grey);
+  border: 1px solid var(--bs-warning);
+}
+
+.form-check-input:checked {
+  background-color: var(--bs-grey);
+  border-color: var(--bs-warning);
+}
+
+.form-check-input:checked[type=checkbox] {
+  background-image: url('../img/checkbox.png');
+}

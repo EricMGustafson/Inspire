@@ -1,23 +1,18 @@
 import { ProxyState } from "../AppState.js";
+import { Weather } from "../Models/Weather.js";
 import { sandboxApi } from "./AxiosServices.js"
 
 class WeathersService {
-
-  async getKelvin() {
+ 
+  async getWeather() {
     const res = await sandboxApi.get('weather')
-
+    ProxyState.currentWeather = new Weather(res.data)
+    console.log(ProxyState.currentWeather);
   }
-  async getCelcius(){
-    const res = await sandboxApi.get('weather')
-    let kelvin = res.data.main.temp
-    let celcius = Math.floor(kelvin - 273.15)
-    return celcius 
-  }
-  async getFarenheight(){
-    const res = await sandboxApi.get('weather')
-    let kelvin = res.data.main.temp
-    let farenheight = Math.floor((kelvin - 273.15)*1.8 + 32)
-    ProxyState.currentWeather = farenheight
+
+  tempSwitch() {
+    ProxyState.farenheight = !ProxyState.farenheight
+    console.log(ProxyState.farenheight);
   }
 }
 

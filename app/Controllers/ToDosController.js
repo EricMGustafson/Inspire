@@ -13,7 +13,6 @@ function _drawToDos(){
 
 function _drawCount(){
   let unchecked = ProxyState.todos.filter(t => t.completed == true)
-  console.log('unchecked boxes', unchecked);
   document.getElementById('unchecked').innerText = unchecked.length.toString()
   document.getElementById('total').innerText = ProxyState.todos.length.toString()
 }

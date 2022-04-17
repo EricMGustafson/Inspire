@@ -4,22 +4,15 @@ import { quotesServices } from "../Services/QuotesServices.js"
 import { weathersService } from "../Services/WeathersService.js"
 import { Pop } from "../Utils/Pop.js"
 
-function _drawWeather() {
-  let w = ProxyState.currentWeather
-    document.getElementById('weather').innerHTML = `
-      <div class="fs-1">${w}°F</div>
-  `
-}
-
 function _drawQuote() {
   let q = ProxyState.currentQuote
   document.getElementById('quote').innerHTML = `
-  <div class="text-center align-self-end">
+  <div class="text-center p-2">
     <div>
       <h4>${q.content}</h4>
     </div>
     <div class="on-hover">
-      <p>${q.author}</p>
+      <p class="mb-0">${q.author}</p>
     </div>
   </div>`
 }
@@ -38,19 +31,14 @@ function _drawClock() {
   document.getElementById('clock').innerHTML = editTime
 }
 
-
-
-
 export class MainsController {
   constructor() {
-    ProxyState.on('currentWeather', _drawWeather)
     ProxyState.on('currentQuote', _drawQuote)
     ProxyState.on('currentImage', _drawImage)
     _drawClock()
-    // setInterval(_drawClock,1000)
+    setInterval(_drawClock,1000)
     this.getQuote()
     this.getImage()
-    this.getFarenheight()
   }
 
   async getQuote() {
@@ -61,14 +49,7 @@ export class MainsController {
       Pop.toast(error, 'error')
     }
   }
-  async getKelvin() {
-    try {
-      await weathersService.getKelvin()
-    } catch (error) {
-      console.error(error)
-      Pop.toast(error, 'error')
-    }
-  }
+
   async getImage() {
     try {
       await imagesService.getImage()
@@ -77,7 +58,5 @@ export class MainsController {
       Pop.toast(error, 'error') 
     }
   }
-  async getFarenheight(){
-    await weathersService.getFarenheight()
-  }
+
 }
