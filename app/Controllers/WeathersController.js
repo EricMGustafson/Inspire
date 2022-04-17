@@ -3,15 +3,15 @@ import { weathersService } from "../Services/WeathersService.js"
 import { Pop } from "../Utils/Pop.js"
 
 
-function _drawWeather(){
-  let icon = ProxyState.currentWeather
-  // document.getElementById('weatherIcon').style.backgroundImage = "url(http://openweathermap.org/img/wn/" + icon.icon + "@2x.png)"
-  document.getElementById('weather').innerHTML = ProxyState.farenheight ? ProxyState.currentWeather.FarenheightTemplate : ProxyState.currentWeather.CelciusTemplate
+async function _drawWeather(){
+  let template = ProxyState.currentWeather
+  let display = ProxyState.weatherDisplay
+  document.getElementById('weather').innerHTML = display == 1 ? template.FarenheightTemplate : display == 2 ? template.CelciusTemplate : template.KelvinTemplate
 }
 export class WeathersController {
   constructor() {
     ProxyState.on('currentWeather', _drawWeather)
-    ProxyState.on('farenheight', _drawWeather)
+    ProxyState.on('weatherDisplay', _drawWeather)
     this.getWeather()
   }
 

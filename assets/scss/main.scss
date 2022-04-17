@@ -15,6 +15,7 @@ body {
   font-weight: bold;
 }
 
+
 main {
   flex-grow: 1;
   height: 1px;
@@ -34,7 +35,18 @@ main {
   text-decoration: line-through;
 }
 
+.vh-5 {
+  height: 5vh;
+}
+
+
 .btn {
   padding: 8px;
   border:none;
+}
+
+.object-fit{
+  object-fit: cover;
+  height: 8vh;
+  width: auto
 }

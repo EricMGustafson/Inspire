@@ -14167,9 +14167,19 @@ main {
   text-decoration: line-through;
 }
 
+.vh-5 {
+  height: 5vh;
+}
+
 .btn {
   padding: 8px;
   border: none;
+}
+
+.object-fit {
+  object-fit: cover;
+  height: 8vh;
+  width: auto;
 }
 
 /*# sourceMappingURL=main.css.map */

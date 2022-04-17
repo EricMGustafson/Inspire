@@ -5,7 +5,7 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/ToDo').ToDo[]} */
   todos = []
   currentWeather = null
-  farenheight = true
+  weatherDisplay = 1
   currentQuote = null
   currentImage = null
   clockFormat = true

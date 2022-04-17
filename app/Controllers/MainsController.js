@@ -30,7 +30,7 @@ function _drawClock() {
   let editTime = time.slice(0, 5)
   let milTime = new Date().toLocaleTimeString([], {hourCycle: 'h24'}) + 'mil'
   let editMilTime = milTime.slice(0, 5)
-  document.getElementById('clock').innerHTML = ProxyState.clockFormat ? editTime : editMilTime + 'm'
+  document.getElementById('clock').innerHTML = ProxyState.clockFormat ? editTime : editMilTime
 }
 
 export class MainsController {

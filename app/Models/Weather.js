@@ -19,50 +19,50 @@ export class Weather{
 
   get KelvinTemplate() {
     return `
-    <div onclick="app.weathersController.tempSwitch()" class="fs-1 selectable">${this.temp}°K</div>
-    `
+    <div class="d-flex text-center">
+      <div class="me-2" id="weatherIcon">
+        <img class="object-fit" src="https://openweathermap.org/img/wn/${this.icon}@2x.png" alt="">
+      </div>
+      <div>
+        <div onclick="app.weathersController.tempSwitch()" class="selectable vh-5">
+          ${Math.floor(this.temp)}°K
+        </div>
+        <div class="fs-5">
+          ${this.city}
+        </div>
+      </div>
+    </div>`
   }
   get CelciusTemplate() {
     return `
     <div class="d-flex text-center">
-    <div class="me-3">
-      <object id='weatherIcon'>
-      </object>
-      <div class="fs-5">
-        ${this.description}
+        <div class="me-2" id="weatherIcon">
+          <img class="object-fit" src="https://openweathermap.org/img/wn/${this.icon}@2x.png" alt="">
+        </div>
+      <div>
+        <div onclick="app.weathersController.tempSwitch()" class="selectable vh-5">
+          ${this.Celcius}°C
+        </div>
+        <div class="fs-5">
+          ${this.city}
+        </div>
       </div>
-    </div>
-    <div>
-      <div onclick="app.weathersController.tempSwitch()" class="selectable">
-        ${this.Celcius}°C
-      </div>
-      <div class="fs-5">
-        ${this.city}
-      </div>
-    </div>
-  </div>
-    `
+    </div>`
   }
   get FarenheightTemplate() {
     return `
     <div class="d-flex text-center">
-      <div class="me-3">
-        <div>
-          ${this.icon}
+        <div class="me-2" id="weatherIcon">
+          <img class="object-fit" src="https://openweathermap.org/img/wn/${this.icon}@2x.png" alt="">
         </div>
-        <div class="fs-5">
-          ${this.description}
-        </div>
-      </div>
       <div>
-        <div onclick="app.weathersController.tempSwitch()" class="selectable">
+        <div onclick="app.weathersController.tempSwitch()" class="selectable vh-5">
           ${this.Farenheight}°F
         </div>
         <div class="fs-5">
           ${this.city}
         </div>
       </div>
-    </div>
-    `
+    </div>`
   }
 }

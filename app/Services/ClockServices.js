@@ -6,7 +6,6 @@ class ClocksServices{
     ProxyState.clockFormat = !ProxyState.clockFormat
     console.log('bang');
   }
-
 }
 
 
