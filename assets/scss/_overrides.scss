@@ -1,0 +1,31 @@
+.offcanvas-backdrop.show {
+  opacity: 0;
+}
+.offcanvas-backdrop {
+  height: 0;
+  width: 0;
+}
+
+.btn-check:focus + .btn, .btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem var(--bs-warning)
+}
+
+.form-control {
+  background-color: rgba(0, 0, 0, 0);
+  color: $warning;
+  border: 1px solid var(--bs-warning);
+}
+
+.form-control:focus {
+  color: #212529;
+  background-color: var(--bs-grey);
+  border: 1px solid var(--bs-warning);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(59, 165, 220, 0.25);
+}
+
+.form-control::placeholder {
+  color: var(--bs-warning);
+  opacity: 1;
+}

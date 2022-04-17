@@ -6,13 +6,23 @@ function _drawToDos(){
   let template = ''
   ProxyState.todos.forEach(t => template += t.ToDoTemplate)
   document.getElementById('todosList').innerHTML = template
+  // @ts-ignore
+  bootstrap.Offcanvas.getOrCreateInstance(document.getElementById('offcanvasRight')).show()
 
+}
+
+function _drawCount(){
+  let unchecked = ProxyState.todos.filter(t => t.completed == true)
+  console.log('unchecked boxes', unchecked);
+  document.getElementById('unchecked').innerText = unchecked.length.toString()
+  document.getElementById('total').innerText = ProxyState.todos.length.toString()
 }
 
 export class ToDosController{
   constructor() {
-    ProxyState.on('todos', _drawToDos)
     this.getToDos()
+    ProxyState.on('todos', _drawToDos)
+    ProxyState.on('todos', _drawCount)
   }
 
   async getToDos(){

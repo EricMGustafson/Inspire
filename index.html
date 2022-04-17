@@ -14,57 +14,66 @@
   <title>checkpoint4</title>
 </head>
 
-<body id="body">
+<body id="body" class="text-warning">
   <div class="container-fluid">
     <div class="row">
       <div class="col-6"></div>
-      <div class="col-6 d-flex justify-content-end" id="weather"></div>
+      <div class="col-6 d-flex justify-content-end p-2" id="weather"></div>
     </div>
   </div>
-  <main class="container-fluid h-100">
-      <div class="row h-100" >
-        <div class="col-12 d-flex justify-content-center h-100" id="clock"></div>
+  <main class="container-fluid">
+    <div class="row h-100">
+      <div class="col-12 d-flex justify-content-center align-items-center" id="clock"></div>
 
-      </div>
+    </div>
     </div>
   </main>
-  <div class="container-fluid">
+  <div class="container-fluid ">
     <div class="row">
-      <div class="col-md-4" id="img-info"><!-- img info here --></div>
-      <div class="col-md-4" id="quote"><!-- quotes here --></div>
-      <div class="col-md-4 text-end align-self-end">
-        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">ToDos</button>
+      <div class="col-md-2 p-2 gx-0 text-start align-self-end" id="img-info">
+        <!-- img info here -->
+      </div>
+      <div class="col" id="quote">
+        <!-- quotes here -->
+      </div>
+      <div class="col-md-2 gx-0 text-end align-self-end">
+        <button class="btn text-warning" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight">ToDos</button>
       </div>
     </div>
   </div>
 
 
-  <div class="offcanvas offcanvas-end rounded" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-    <div class="offcanvas-header justify-content-center py-1">
-      <h5 id="offcanvasRightLabel">ToDo List</h5>
+  <div class="offcanvas offcanvas-end rounded text-warning bg-grey" tabindex="-1" id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header justify-content-between py-1">
+      <h5 id="offcanvasRightLabel">ToDo</h5>
+      <h5><span id="unchecked">0</span>/<span id="total">0</span></h5>
     </div>
-    <div class="offcanvas-body px-2 py-1" id="todosList" >
+    <div class="offcanvas-body px-2 py-1" id="todosList">
       <!-- todos go here -->
     </div>
     <div>
       <form onsubmit="app.toDosController.addToDo()" class="d-flex">
         <label for="description" class="form-label"></label>
-        <input type="text" class="form-control" name="description" id="description" aria-describedby="helpId" placeholder="New ToDo..." required>
-        <button class="btn btn-outline-secondary bg-info text-light"  type="submit" id="button-addon2">ToDo!</button>
+        <input type="text" class="form-control text-warning" name="description" id="description" aria-describedby="helpId"
+          placeholder="ToDo..." required>
       </form>
     </div>
   </div>
 
 
-<!-- #region -->
+  <!-- #region -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
     integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js" integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"
+    integrity="sha512-bPh3uwgU5qEMipS/VOmRqynnMXGGSRv+72H/N260MQeXZIK4PG48401Bsby9Nq5P5fz7hy5UGNmC/W1Z51h2GQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="app/main.js" type="module"></script>
-<!-- #endregion -->
+  <!-- #endregion -->
 </body>
 
 </html>

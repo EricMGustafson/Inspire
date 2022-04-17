@@ -7,20 +7,29 @@ import { Pop } from "../Utils/Pop.js"
 function _drawWeather() {
   let w = ProxyState.currentWeather
     document.getElementById('weather').innerHTML = `
-      <div>${w}^F</div>
+      <div class="fs-1">${w}°F</div>
   `
 }
 
 function _drawQuote() {
   let q = ProxyState.currentQuote
-  document.getElementById('quote').innerHTML = `<div><div><h4>${q.content}</h4></div><div><p>${q.author}</p></div></div>
-  `
+  document.getElementById('quote').innerHTML = `
+  <div class="text-center align-self-end">
+    <div>
+      <h4>${q.content}</h4>
+    </div>
+    <div class="on-hover">
+      <p>${q.author}</p>
+    </div>
+  </div>`
 }
 
 function _drawImage() {
   let img = ProxyState.currentImage
   document.body.style.backgroundImage = "url(" + img.largeImgUrl + ")"
-  document.getElementById('img-info').innerHTML = 'By: ' + img.author + ', Theme: ' + img.query
+  document.getElementById('img-info').innerHTML = `
+  <div>By: ${img.author}</div>
+  <div>Theme: ${img.query}</div>`
 }
 
 function _drawClock() { 
@@ -38,7 +47,7 @@ export class MainsController {
     ProxyState.on('currentQuote', _drawQuote)
     ProxyState.on('currentImage', _drawImage)
     _drawClock()
-    setInterval(_drawClock,1000)
+    // setInterval(_drawClock,1000)
     this.getQuote()
     this.getImage()
     this.getFarenheight()
