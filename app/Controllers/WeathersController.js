@@ -4,6 +4,8 @@ import { Pop } from "../Utils/Pop.js"
 
 
 function _drawWeather(){
+  let icon = ProxyState.currentWeather
+  // document.getElementById('weatherIcon').style.backgroundImage = "url(http://openweathermap.org/img/wn/" + icon.icon + "@2x.png)"
   document.getElementById('weather').innerHTML = ProxyState.farenheight ? ProxyState.currentWeather.FarenheightTemplate : ProxyState.currentWeather.CelciusTemplate
 }
 export class WeathersController {

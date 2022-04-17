@@ -17,15 +17,18 @@
 <body id="body" class="text-warning">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-6"></div>
-      <div class="col-6 d-flex justify-content-end p-2" id="weather"></div>
+      <div class="col-6">
+        <button onclick="app.mainsController.getImage()">New Image</button>
+        <button onclick="app.mainsController.getQuote()">New Quote</button>
+        <button onclick="app.mainsController.clockFlip()">Clock Format</button>
+      </div>
+      <div class="col-6 d-flex justify-content-end p-2 fs-1" id="weather">
+      </div>
     </div>
   </div>
   <main class="container-fluid">
     <div class="row h-100">
       <div class="col-12 d-flex justify-content-center align-items-center" id="clock"></div>
-
-    </div>
     </div>
   </main>
   <div class="container-fluid ">

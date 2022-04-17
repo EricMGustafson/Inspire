@@ -1,7 +1,7 @@
 import { ProxyState } from "../AppState.js"
+import { clocksServices } from "../Services/ClockServices.js"
 import { imagesService } from "../Services/ImagesService.js"
 import { quotesServices } from "../Services/QuotesServices.js"
-import { weathersService } from "../Services/WeathersService.js"
 import { Pop } from "../Utils/Pop.js"
 
 function _drawQuote() {
@@ -26,15 +26,18 @@ function _drawImage() {
 }
 
 function _drawClock() { 
-  let time = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
+  let time = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) 
   let editTime = time.slice(0, 5)
-  document.getElementById('clock').innerHTML = editTime
+  let milTime = new Date().toLocaleTimeString([], {hourCycle: 'h24'}) + 'mil'
+  let editMilTime = milTime.slice(0, 5)
+  document.getElementById('clock').innerHTML = ProxyState.clockFormat ? editTime : editMilTime + 'm'
 }
 
 export class MainsController {
   constructor() {
     ProxyState.on('currentQuote', _drawQuote)
     ProxyState.on('currentImage', _drawImage)
+    ProxyState.on('clockFormat', _drawClock)
     _drawClock()
     setInterval(_drawClock,1000)
     this.getQuote()
@@ -59,4 +62,7 @@ export class MainsController {
     }
   }
 
+  clockFlip(){
+    clocksServices.clockFlip()
+  }
 }

@@ -5,9 +5,10 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/ToDo').ToDo[]} */
   todos = []
   currentWeather = null
+  farenheight = true
   currentQuote = null
   currentImage = null
-  farenheight = false
+  clockFormat = true
 }
 
 export const ProxyState = new Proxy(new AppState(), {

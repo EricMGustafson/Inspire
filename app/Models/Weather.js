@@ -24,12 +24,45 @@ export class Weather{
   }
   get CelciusTemplate() {
     return `
-    <div onclick="app.weathersController.tempSwitch()" class="fs-1 selectable">${this.Celcius}°C</div>
+    <div class="d-flex text-center">
+    <div class="me-3">
+      <object id='weatherIcon'>
+      </object>
+      <div class="fs-5">
+        ${this.description}
+      </div>
+    </div>
+    <div>
+      <div onclick="app.weathersController.tempSwitch()" class="selectable">
+        ${this.Celcius}°C
+      </div>
+      <div class="fs-5">
+        ${this.city}
+      </div>
+    </div>
+  </div>
     `
   }
   get FarenheightTemplate() {
     return `
-    <div onclick="app.weathersController.tempSwitch()" class="fs-1 selectable">${this.Farenheight}°F</div>
+    <div class="d-flex text-center">
+      <div class="me-3">
+        <div>
+          ${this.icon}
+        </div>
+        <div class="fs-5">
+          ${this.description}
+        </div>
+      </div>
+      <div>
+        <div onclick="app.weathersController.tempSwitch()" class="selectable">
+          ${this.Farenheight}°F
+        </div>
+        <div class="fs-5">
+          ${this.city}
+        </div>
+      </div>
+    </div>
     `
   }
 }
