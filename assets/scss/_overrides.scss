@@ -12,7 +12,7 @@
 }
 
 .form-control {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: var(--bs-grey);
   color: $warning;
   border: 1px solid var(--bs-warning);
 }

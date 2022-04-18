@@ -2,6 +2,7 @@ import { ProxyState } from "../AppState.js"
 import { clocksServices } from "../Services/ClockServices.js"
 import { imagesService } from "../Services/ImagesService.js"
 import { quotesServices } from "../Services/QuotesServices.js"
+import { loadState, saveState } from "../Utils/LocalStorage.js"
 import { Pop } from "../Utils/Pop.js"
 
 function _drawQuote() {
@@ -33,17 +34,25 @@ function _drawClock() {
   document.getElementById('clock').innerHTML = ProxyState.clockFormat ? editTime : editMilTime
 }
 
+function _drawGreeting() {
+  let time = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) 
+  console.log(time);
+  if (time)
+}
+
 export class MainsController {
   constructor() {
     ProxyState.on('currentQuote', _drawQuote)
     ProxyState.on('currentImage', _drawImage)
     ProxyState.on('clockFormat', _drawClock)
+    ProxyState.on('')
+    ProxyState.on('currentUser', saveState)
+    loadState()
     _drawClock()
     setInterval(_drawClock,1000)
     this.getQuote()
     this.getImage()
   }
-
   async getQuote() {
     try {
       await quotesServices.getQuote()
@@ -52,7 +61,6 @@ export class MainsController {
       Pop.toast(error, 'error')
     }
   }
-
   async getImage() {
     try {
       await imagesService.getImage()
@@ -61,15 +69,49 @@ export class MainsController {
       Pop.toast(error, 'error') 
     }
   }
-
   clockFlip(){
     clocksServices.clockFlip()
   }
   setTheme(theme){
+    if (theme == 'dark') {
+      document.getElementById('offcanvasRight').style.backgroundColor = 'var(--bs-light)'
+      document.getElementById('offcanvasLeft').style.backgroundColor = 'var(--bs-light)'
+    }
+    if (theme == 'light') {
+      document.getElementById('offcanvasRight').style.backgroundColor = 'var(--bs-grey)'
+      document.getElementById('offcanvasLeft').style.backgroundColor = 'var(--bs-grey)'
+    }
+    if (theme == 'warning') {
+      document.getElementById('offcanvasRight').style.backgroundColor = 'var(--bs-grey)'
+      document.getElementById('offcanvasLeft').style.backgroundColor = 'var(--bs-grey)'
+    }
     document.getElementById('body').style.color = 'var(--bs-'+ theme + ')'
     document.getElementById('offcanvasRight').style.color = 'var(--bs-'+ theme + ')'
     document.getElementById('offcanvasLeft').style.color = 'var(--bs-'+ theme + ')'
     document.getElementById('btn').style.color = 'var(--bs-'+ theme + ')'
     document.getElementById('description').style.color = 'var(--bs-'+ theme + ')'
+  }
+  newUser(){
+    document.getElementById('newUser').toggleAttribute('hidden')
+    document.getElementById('user').toggleAttribute('hidden')
+  }
+  addUser(){
+    try {
+      window.event.preventDefault()
+      /**@type {HTMLFormElement*/
+      // @ts-ignore
+      const formElem = window.event.target
+      const formData = {
+        user: formElem.user.value
+      }
+      document.getElementById('userDisplay').innerText = formData.user
+      console.log(formData);
+      formElem.reset()
+    } catch (error) {
+      console.error(error)
+      Pop.toast(error, 'error') 
+    }
+    document.getElementById('newUser').toggleAttribute('hidden')
+    document.getElementById('user').toggleAttribute('hidden')
   }
 }

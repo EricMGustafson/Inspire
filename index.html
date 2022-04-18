@@ -28,6 +28,9 @@
   <main class="container-fluid">
     <div class="row h-100">
       <div class="col-12 d-flex justify-content-center align-items-center" id="clock"></div>
+      <div class="col-12 d-flex justify-content-center" id="userDisplay">
+        <span id="greeting">good morning <span id="userDisplay">eric</span></span>
+      </div>
     </div>
   </main>
   <div class="container-fluid ">
@@ -46,7 +49,7 @@
   </div>
 
 <!-- #region -->
-  <div class="offcanvas offcanvas-end rounded bg-grey gx-0" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="color: var(--bs-warning)">
+  <div class="offcanvas offcanvas-end rounded gx-0" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="color: var(--bs-warning); background-color: var(--bs-grey);">
     <div class="offcanvas-header justify-content-between py-1">
       <h5 id="offcanvasRightLabel">ToDo</h5>
       <h5><span id="unchecked">0</span>/<span id="total">0</span></h5>
@@ -58,14 +61,14 @@
       <form onsubmit="app.toDosController.addToDo()" class="d-flex">
         <label for="description" class="form-label"></label>
         <input type="text" class="form-control text-warning" name="description" id="description" aria-describedby="helpId"
-          placeholder="ToDo..." required>
+          placeholder="Add ToDo..." required>
       </form>
     </div>
   </div>
   <!-- #endregion -->
 
   <!-- #region -->
-  <div class="offcanvas offcanvas-start rounded bg-grey gx-0" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel" style="color: var(--bs-warning)">
+  <div class="offcanvas offcanvas-start rounded gx-0" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel" style="color: var(--bs-warning); background-color: var(--bs-grey);">
     <div class="text-center px-2">
       <h5 id="offcanvasLeftLabel">Change Themes</h5>
       <hr>
@@ -102,10 +105,13 @@
       </div>
     </div>
     <div>
-      <form onsubmit="app.toDosController.addToDo()" class="d-flex">
-        <label for="description" class="form-label"></label>
-        <input type="text" class="form-control squared rounded-bottom text-warning" name="description" id="description" aria-describedby="helpId"
-          placeholder="ToDo..." required>
+      <div class="d-flex justify-content-end">
+        <button type="submit" id="newUser" class="btn text-warning" onclick="app.mainsController.newUser()">New User</button>
+      </div>
+      <form onsubmit="app.mainsController.addUser()" class="d-flex">
+        <label for="user" class="form-label"></label>
+        <input type="text" class="form-control squared rounded-bottom text-warning" name="user" id="user" hidden aria-describedby="helpId"
+          placeholder="Enter Name..." required>
       </form>
     </div>
   </div>

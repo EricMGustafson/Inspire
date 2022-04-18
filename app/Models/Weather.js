@@ -20,14 +20,14 @@ export class Weather{
   get KelvinTemplate() {
     return `
     <div class="d-flex text-center">
-      <div class="me-2" id="weatherIcon">
+      <div class="me-1" id="weatherIcon">
         <img class="object-fit" src="https://openweathermap.org/img/wn/${this.icon}@2x.png" alt="${this.description}" title="${this.description}">
       </div>
       <div>
-        <div onclick="app.weathersController.tempSwitch()" class="selectable vh-5">
+        <div onclick="app.weathersController.tempSwitch()" class="selectable fs-2r vh-5">
           ${Math.floor(this.temp)}°K
         </div>
-        <div class="fs-5">
+        <div class="fs-5 mt-2">
           ${this.city}
         </div>
       </div>
@@ -36,14 +36,14 @@ export class Weather{
   get CelciusTemplate() {
     return `
     <div class="d-flex text-center">
-        <div class="me-2" id="weatherIcon">
+        <div class="me-1" id="weatherIcon">
           <img class="object-fit" src="https://openweathermap.org/img/wn/${this.icon}@2x.png" alt="${this.description}" title="${this.description}">
         </div>
       <div>
-        <div onclick="app.weathersController.tempSwitch()" class="selectable vh-5">
+        <div onclick="app.weathersController.tempSwitch()" class="selectable fs-2r vh-5">
           ${this.Celcius}°C
         </div>
-        <div class="fs-5">
+        <div class="mt-2 fs-5">
           ${this.city}
         </div>
       </div>
@@ -52,14 +52,14 @@ export class Weather{
   get FarenheightTemplate() {
     return `
     <div class="d-flex text-center">
-        <div class="me-2" id="weatherIcon">
+        <div class="me-1" id="weatherIcon">
           <img class="object-fit" src="https://openweathermap.org/img/wn/${this.icon}@2x.png" alt="${this.description}" title="${this.description}">
         </div>
       <div>
-        <div onclick="app.weathersController.tempSwitch()" class="selectable vh-5">
+        <div onclick="app.weathersController.tempSwitch()" class="selectable fs-2r vh-5">
           ${this.Farenheight}°F
         </div>
-        <div class="fs-5">
+        <div class="mt-2 fs-5">
           ${this.city}
         </div>
       </div>

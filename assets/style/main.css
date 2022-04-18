@@ -11127,7 +11127,7 @@ textarea.form-control-lg {
 }
 
 .form-control {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: var(--bs-grey);
   color: #fbcf33;
   border: 1px solid var(--bs-warning);
 }
@@ -14172,6 +14172,10 @@ main {
   font-size: 10em;
 }
 
+#userDisplay {
+  font-size: 4em;
+}
+
 .offcanvas-end {
   top: 60vh;
   bottom: 10vh;
@@ -14180,8 +14184,8 @@ main {
 
 .offcanvas-start {
   top: 10vh;
-  bottom: 60vh;
-  width: fit-content;
+  bottom: 50vh;
+  width: 20vw;
 }
 
 .st {
@@ -14196,6 +14200,10 @@ main {
   height: 21vh;
 }
 
+.fs-2r {
+  font-size: 2rem;
+}
+
 .btn {
   padding: 8px;
   border: none;
@@ -14203,7 +14211,7 @@ main {
 
 .object-fit {
   object-fit: cover;
-  height: 8vh;
+  height: 11vh;
   width: auto;
 }
 
