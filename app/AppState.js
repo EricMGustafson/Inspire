@@ -10,7 +10,7 @@ class AppState extends EventEmitter {
   currentQuote = null
   currentImage = null
   clockFormat = true
-  currentUser = []
+  currentUser = null
 }
 
 export const ProxyState = new Proxy(new AppState(), {

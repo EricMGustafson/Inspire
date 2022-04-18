@@ -31,13 +31,16 @@ function _drawClock() {
   let editTime = time.slice(0, 5)
   let milTime = new Date().toLocaleTimeString([], {hourCycle: 'h24'}) + 'mil'
   let editMilTime = milTime.slice(0, 5)
+  console.log(editMilTime);
   document.getElementById('clock').innerHTML = ProxyState.clockFormat ? editTime : editMilTime
-}
-
-function _drawGreeting() {
-  let time = new Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) 
-  console.log(time);
-  if (time)
+  if (editMilTime >= '04:00' && editMilTime <= '11:59') {
+    document.getElementById('greeting').innerText = 'Good Morning, '
+  } else if (editMilTime >= '12:00' && editMilTime <= "16:59") {
+    document.getElementById('greeting').innerText = 'Good Afternoon, '
+  } else if (editMilTime >= '17:00' && editMilTime <= '23:59') {
+    document.getElementById('greeting').innerText = 'Good Evening, '
+  } else {document.getElementById('greeting').innerText = 'Good Night, '}
+  document.getElementById('userDisplay').innerText = ProxyState.currentUser
 }
 
 export class MainsController {
@@ -45,7 +48,6 @@ export class MainsController {
     ProxyState.on('currentQuote', _drawQuote)
     ProxyState.on('currentImage', _drawImage)
     ProxyState.on('clockFormat', _drawClock)
-    ProxyState.on('')
     ProxyState.on('currentUser', saveState)
     loadState()
     _drawClock()
@@ -94,6 +96,7 @@ export class MainsController {
   newUser(){
     document.getElementById('newUser').toggleAttribute('hidden')
     document.getElementById('user').toggleAttribute('hidden')
+    window.localStorage.removeItem('inspire')
   }
   addUser(){
     try {
@@ -104,8 +107,7 @@ export class MainsController {
       const formData = {
         user: formElem.user.value
       }
-      document.getElementById('userDisplay').innerText = formData.user
-      console.log(formData);
+      ProxyState.currentUser = formData.user
       formElem.reset()
     } catch (error) {
       console.error(error)

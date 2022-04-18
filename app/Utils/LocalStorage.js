@@ -12,6 +12,7 @@ export function loadState(){
   let data = window.localStorage.getItem('inspire')
   if (data) {
     let obj = JSON.parse(data)
-    ProxyState.currentUser = obj.currentUser.map()
+    console.log(obj);
+    ProxyState.currentUser = obj.user
   }
 }
