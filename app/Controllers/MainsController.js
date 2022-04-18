@@ -31,7 +31,6 @@ function _drawClock() {
   let editTime = time.slice(0, 5)
   let milTime = new Date().toLocaleTimeString([], {hourCycle: 'h24'}) + 'mil'
   let editMilTime = milTime.slice(0, 5)
-  console.log(editMilTime);
   document.getElementById('clock').innerHTML = ProxyState.clockFormat ? editTime : editMilTime
   if (editMilTime >= '04:00' && editMilTime <= '11:59') {
     document.getElementById('greeting').innerText = 'Good Morning, '
@@ -101,7 +100,7 @@ export class MainsController {
   addUser(){
     try {
       window.event.preventDefault()
-      /**@type {HTMLFormElement*/
+      /**@type {HTMLFormElement}*/
       // @ts-ignore
       const formElem = window.event.target
       const formData = {
