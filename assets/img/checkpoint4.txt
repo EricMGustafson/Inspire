@@ -1,0 +1,22 @@
+Quote: Quote always displayed and Author reveals on hover
+Weather: The temp is displayed in Fahrenheit/Celsius with a click toggling between
+Todo: Todo's are rendered on load
+Todo: Todo's remaining count does not require reload when todo is toggled
+A clock shows the accurate time in the middle of the screen and updates appropriately
+
+
+
+
+
+
+
+
+
+Image: The API must be used to get a random image on reload.
+When adding a Todo the page does not reload
+Completed Todo's have a style indication or checkbox that will persist on reload (hint: checked attribute)
+Todo's can be removed (DELETE)
+Todo's can be marked complete (PUT)
+Todo's can be added to a list (POST)
+The image must be large with at least one an element positioned over top.
+Deleting a todo requires confirmation
